@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, Alert } from "react-native";
-import Button from "./Button";
+import { StyleSheet, Text, View, TextInput, Button, Alert } from "react-native";
 
 const sampleGoals = [
   "Faire les courses",
@@ -41,7 +40,7 @@ export default function App() {
         {sampleGoals.map((item, id) => (
           <View key={id}>
             <Text>{item}</Text>
-            <Button label="X" onPress={() => Remove(id)}/>
+            <Button title="X" onPress={() => Remove(id)}/>
           </View>
         ))}
       </View>
@@ -53,7 +52,7 @@ export default function App() {
           value={inputValue}
         />
 
-        <Button label="Add" onPress={addGoalHandler} />
+        <Button title="Add" onPress={addGoalHandler} />
         <StatusBar style="auto" />
       </View>
     </View>
@@ -82,5 +81,7 @@ const styles = StyleSheet.create({
     padding: 10,
     flex: 1,
   },
-
+  Button: {
+    flexDirection: "row",
+  },
 });
