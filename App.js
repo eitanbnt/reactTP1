@@ -41,6 +41,11 @@ export default function App() {
     setListe(updateListe);
   };
 
+  const Change = (id, item) => {
+    updateListe = sampleGoals.map(Return(id, item, sampleGoals));
+    setListe(updateListe);
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -52,6 +57,7 @@ export default function App() {
           <View key={id}>
             <Text>{item}</Text>
             <Button label="X" onPress={() => Remove(id)} />
+            <Button label="Modifier" onPress={() => Change(id, item)} />
           </View>
         ))}
       </View>
